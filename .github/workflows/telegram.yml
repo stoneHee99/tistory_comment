@@ -23,8 +23,8 @@ jobs:
           DISCUSSION_URL: ${{ github.event.discussion.html_url }}
           DISCUSSION_TITLE: ${{ github.event.discussion.title }}
           DISCUSSION_BODY: ${{ github.event.discussion.body }}
-          USER_URL: ${{ github.event.discussion.user.html_url }}
-          USER_NAME: ${{ github.event.discussion.user.login }}
+          USER_URL: ${{ github.event.comment.user.html_url }}
+          USER_NAME: ${{ github.event.comment.user.login }}
       - name: Send Discussion Create Notification to Telegram
         run: |
           curl -X POST "https://api.telegram.org/bot${{secrets.TELEGRAM_TOKEN}}/sendMessage?parse_mode=MarkdownV2" \
